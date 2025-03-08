@@ -168,11 +168,14 @@ body { background: var(--smoky-black); }
 .sidebar,
 article {
   background: var(--eerie-black-2);
-  border: 1px solid var(--jet);
+  /* border: 1px solid var(--jet); */
   border-radius: 20px;
   padding: 15px;
   box-shadow: var(--shadow-1);
   z-index: 1;
+  background: linear-gradient(145deg, #101010, #131313);
+  box-shadow:  -5px -5px 10px #070707,
+             5px 5px 10px #1d1d1d;
 }
 
 .separator {
@@ -1832,6 +1835,9 @@ textarea.form-input::-webkit-resizer { display: none; }
     margin-bottom: 0;
     padding-top: 60px;
     z-index: 1;
+    background: linear-gradient(145deg, #101010, #131313);
+    box-shadow:  5px 5px 10px #0c0c0c,
+             -5px -5px 10px #181818;
   }
 
   .sidebar-info { flex-direction: column; }
