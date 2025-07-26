@@ -120,6 +120,11 @@ const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
 
+// Initialize EmailJS
+(function(){
+    emailjs.init("YOUR_PUBLIC_KEY"); // You'll need to replace this
+})();
+
 // add event to all form input field
 for (let i = 0; i < formInputs.length; i++) {
   formInputs[i].addEventListener("input", function () {
@@ -133,6 +138,38 @@ for (let i = 0; i < formInputs.length; i++) {
 
   });
 }
+
+// handle form submission
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  
+  // Show loading state
+  formBtn.innerHTML = '<ion-icon name="hourglass-outline"></ion-icon><span>Sending...</span>';
+  formBtn.setAttribute("disabled", "");
+  
+  // Simple mailto fallback for now
+  const formData = new FormData(form);
+  const name = formData.get('from_name');
+  const email = formData.get('from_email');
+  const message = formData.get('message');
+  
+  const subject = `Portfolio Contact from ${name}`;
+  const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+  const mailtoLink = `mailto:ramanipalak4105@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+  
+  // Open mailto link
+  window.location.href = mailtoLink;
+  
+  // Show success message
+  setTimeout(() => {
+    formBtn.innerHTML = '<ion-icon name="checkmark-outline"></ion-icon><span>Email Client Opened!</span>';
+    form.reset();
+    setTimeout(() => {
+      formBtn.innerHTML = '<ion-icon name="paper-plane"></ion-icon><span>Send Message</span>';
+      formBtn.removeAttribute("disabled");
+    }, 3000);
+  }, 500);
+});
 
 
 

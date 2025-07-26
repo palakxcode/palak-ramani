@@ -20,6 +20,11 @@
   <link rel="stylesheet" href="./assets/css/style1.css">
 
   <!--
+    - EmailJS SDK
+  -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <!--
     - google font link
   -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,7 +56,7 @@
           <h1 class="name" title="Palak Ramani">Palak Ramani</h1>
 
           <p class="title">Flutter Dev</p>
-          <p class="title">CSE sophomore</p>
+          <p class="title">CSE Pre-Final Year</p>
           <p class="title">Passionate learner</p>
         </div>
 
@@ -465,6 +470,14 @@
               <h4 class="h4 timeline-item-title">Technical Head - Android Club, VITC</h4>
 
               <span>2025 — Present</span>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Contributor - GirlScript Summer of Code</h4>
+
+              <span>July 2025 — Present</span>
 
             </li>
 
@@ -993,17 +1006,17 @@
 
           <h3 class="h3 form-title">Contact Form</h3>
 
-          <form action="#" class="form" data-form>
+          <form action="#" method="POST" class="form" data-form>
 
             <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <input type="text" name="from_name" class="form-input" placeholder="Full name" required data-form-input>
 
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+              <input type="email" name="from_email" class="form-input" placeholder="Email address" required data-form-input>
             </div>
 
             <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
 
-            <button class="form-btn" type="submit" disabled data-form-btn>
+            <button class="form-btn" type="submit" data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
               <span>Send Message</span>
             </button>
